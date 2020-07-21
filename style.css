@@ -1,0 +1,27 @@
+html {
+    height: 100%; 
+}
+
+body {
+    height: 100%;
+    background-image: linear-gradient(rgb(56, 56, 56), rgb(21, 28, 68));
+}
+
+h2 {
+    font-size: 32px;
+}
+.container {
+    padding-top: 10%; 
+}
+
+.nice-container {
+    background-image: linear-gradient(white, lightgray);
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin: auto;
+    min-width: 200px;
+    text-align: center;
+    padding-bottom: 10px;
+    width: 80%;
+    
+}
