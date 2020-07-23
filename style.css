@@ -4,14 +4,19 @@ html {
 
 body {
     height: 100%;
-    background-image: linear-gradient(lightblue, white);
+    background-image: linear-gradient(rgb(213, 242, 251), white);
+    font-family: Lato, sans-serif;
 }
 
 h2 {
     font-size: 32px;
 }
 
-.container {
+#przerwa {
+    height: 100px;
+}
+
+#container {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -20,16 +25,16 @@ h2 {
 }
 
 #nice-container {
-    background-image: linear-gradient(45deg, white, lightgray);
-    border: 2px solid;
+    background-color: white;
+    border: none;
     border-color: black;
-    font-family: Open Sans, Arial, Helvetica, sans-serif;
-    border-radius: 5px;
+    border-radius: 2px;
     text-align: center;
     padding-bottom: 10px;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
+   box-shadow: 10px 10px 30px grey;
 }
 
 #miasto {
@@ -38,7 +43,7 @@ h2 {
     padding: 5px 5px 5px 5px;
     width: 80%;
     height: 30px;
-    border-color: white;
+    border-color: lightgray;
     border: 1px solid;
     text-align: center;
     margin: 20px 0px 15px 0px;
@@ -50,16 +55,33 @@ h2 {
     margin: 10px 0px 30px 0px;
     padding: 10px 20px 10px 20px;
     border-color: black;
+    border: none;
+    background-color: rgb(83, 119, 30);
+    color: white;
+}
+
+#miasto:active {
     border: 1px solid;
+    border-color: lightgrey;
+}
+
+#sprawdz:hover {
+    background-color: rgb(134, 194, 50);
+    border: none;
+}
+
+#sprawdz:active {
+    background-color: rgb(49, 70, 19);
+    border: none;
 }
 
 @keyframes zjazd {
     0% { 
         opacity: 0; 
-        top: 15%; 
+        top: 15px%; 
     }
     100% { 
         opacity: 1; 
-        top: 20%;  
+        top: 20px;  
     }
 }
