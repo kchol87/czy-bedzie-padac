@@ -85,6 +85,8 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     bottom: 0;
+    animation-name: footer;
+    animation-duration: 6s;
 }
 
 #footer {
@@ -105,5 +107,14 @@ a:any-link {
     100% { 
         opacity: 1; 
         top: 20px;  
+    }
+}
+
+@keyframes footer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
     }
 }
