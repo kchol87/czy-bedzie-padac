@@ -80,6 +80,11 @@ h2 {
     border: none;
 }
 
+#sprawdz::selection {
+    background-color: rgb(49, 70, 19);
+    border: none;
+}
+
 .footer {
     margin-top: 5px;
     margin-left: auto;
