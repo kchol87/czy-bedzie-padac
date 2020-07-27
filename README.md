@@ -1,4 +1,4 @@
-# czy-bedzie-padac
+# Czy będzie padać? (Will it rain?)
 
 A simple web app to check precipitation in a given location in Poland. 
 ---
