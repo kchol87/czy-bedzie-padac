@@ -12,13 +12,14 @@ h2 {
 }
 
 #przerwa {
-    height: 100px;
+    height: 10vh;
 }
 
 #container {
-    width: 400px;
     margin-left: auto;
     margin-right: auto;
+    width: 30vw;
+    min-width: 350px;
     animation-name: zjazd;
     animation-duration: 4s;
 }
