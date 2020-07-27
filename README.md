@@ -1,6 +1,9 @@
 # czy-bedzie-padac
-Prosta aplikacja do sprawdzenia czy będzie padać deszcz w określonej lokalizacji.
-<hr>
-Aplikacja ma na celu pobranie ze strony pogodowej informację o tym, czy we wskazanym przez użytkownika miejscu (a w przyszłości na podstawie geolokacji), 
-będzie padać deszcz albo czy będzie burza. Wynik będzie wskazany prosto: tak albo nie wraz z czasem w jakim zjawisko ma wystąpić. Konieczne jest jeszcze
-wprowadzenie połączenia z API pogodowym. 
+
+A simple web app to check precipitation in a given location in Poland. 
+---
+The app is created to check if it rains in a location chosen by the user. Using a weather service API the app will show if it rains in the next couple of hours, giving the time and duration of precipitation and display the probability of a storm coming. 
+
+## To do:
+* design various scenarios;
+* connect to weather API (planning to connect to antistorm.eu API). 
