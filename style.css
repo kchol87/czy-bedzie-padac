@@ -44,7 +44,7 @@ h2 {
     margin-top: 30px;
 }
 
-#miasto {
+#city {
     font-size: 18px;
     border-radius: 2px;
     padding: 5px 5px 5px 5px;
@@ -56,7 +56,7 @@ h2 {
     margin: 15px 0px 15px 0px;
   }
 
-#sprawdz {
+#checkButton {
     font-size: 16px;
     border-radius: 5px;
     margin: 15px 0px 30px 0px;
@@ -67,22 +67,22 @@ h2 {
     color: white;
 }
 
-#miasto:active {
+#city:active {
     border: 1px solid;
     border-color: lightgrey;
 }
 
-#sprawdz:hover {
+#checkButton:hover {
     background-color: rgb(134, 194, 50);
     border: none;
 }
 
-#sprawdz:active {
+#checkButton:active {
     background-color: rgb(49, 70, 19);
     border: none;
 }
 
-#sprawdz::selection {
+#checkButton:selection {
     background-color: rgb(49, 70, 19);
     border: none;
 }
@@ -115,3 +115,9 @@ a:any-link {
     }
 }
 
+
+
+#option {
+    background: white;
+    color: black;
+}
