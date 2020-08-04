@@ -10,7 +10,7 @@ const myList = document.getElementById("myList");
 /*for (const [key, value] of Object.entries(cityList)) {myList.add(new Option(key, value))};*/
 
 for (i = 0; i < 439; i++) {
-        myList.add(new Option(Object.keys(cityList)[], i));
+        myList.add(new Option(Object.keys(cityList)[i], i));
 };
 
 /*document.addEventListener("click", function() {
