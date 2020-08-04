@@ -1,16 +1,17 @@
 /*Creates a limited input city searchbox with hints*/
 
-var cityList;
-fetch ("cities.json")
-    .then(res => res.json())
-    .then(data => cityList = data)
 
+var cityList = [];
+let URL = new Request("cities.json");
+fetch(URL)
+.then(response => response.json())
+.then(data => cityList = data);
 const myList = document.getElementById("myList");
+/*for (const [key, value] of Object.entries(cityList)) {myList.add(new Option(key, value))};*/
 
-for (const [key, value] of Object.entries(cityList))
-{myList.add(new Option(key, value))};
-
-
+for (i = 0; i < 439; i++) {
+        myList.add(new Option(Object.keys(cityList)[], i));
+};
 
 /*document.addEventListener("click", function() {
     for (const [key, value] of Object.entries(cityList))
@@ -46,7 +47,7 @@ fetch('http://antistorm.eu/webservice.php?id=' + cityNumber)
 
 
 
-    
+
 
     
 
