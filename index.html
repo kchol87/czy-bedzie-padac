@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
-<script src="script.js" defer></script>
+<script defer src="script.js"></script>
 </head>
 
 <body>
@@ -20,15 +20,11 @@
 <div id="nice-container">
 <img id="logo" src="img/logo.png" alt="Czy będzie padać? - logo">
 <h2>Czy będzie padać?</h2>
-<p>Wpisz swoje miasto i sprawdź czy będzie padać.</p>
+<p>Wybierz swoje miasto i sprawdź czy będzie padać.</p>
 
-<form>
-    <input list="cities" type="text" id="city" placeholder="Wpisz miasto"></input>
-    
-    
-    </datalist>
-    <br>
-    <button id="checkButton">Sprawdź</button>
+<form id="form">
+    <select id="myList" required="true"></select>
+    <input id="checkButton" type="submit" value="Sprawdź">
 </form>
 
 </div>

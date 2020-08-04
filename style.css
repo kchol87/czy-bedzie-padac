@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(rgb(213, 242, 251), white);
+    background-color: white;
     font-family: Lato, sans-serif;
 }
 
@@ -16,13 +16,16 @@ h2 {
 }*/
 
 #container {
+    display: flex;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     max-width: 30vw;
     min-width: 350px;
     animation-name: fadedown;
-    animation-duration: 4s;
+    animation-duration: 1s;
+    align-items: center;
+    
 }
 
 #nice-container {
@@ -35,7 +38,7 @@ h2 {
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    /*box-shadow: 10px 10px 30px grey;*/
+    box-shadow: 10px 10px 30px grey;
 }
 
 #logo {
@@ -44,47 +47,18 @@ h2 {
     margin-top: 30px;
 }
 
-#city {
-    font-size: 18px;
-    border-radius: 2px;
-    padding: 5px 5px 5px 5px;
-    width: 80%;
-    height: 30px;
-    border-color: lightgray;
-    border: 1px solid;
-    text-align: center;
-    margin: 15px 0px 15px 0px;
-  }
-
 #checkButton {
     font-size: 16px;
     border-radius: 5px;
     margin: 15px 0px 30px 0px;
-    padding: 10px 20px 10px 20px;
-    border-color: black;
+    padding: 12px 20px 11px 20px;
     border: none;
     background-color: rgb(83, 119, 30);
     color: white;
 }
 
-#city:active {
-    border: 1px solid;
-    border-color: lightgrey;
-}
-
 #checkButton:hover {
     background-color: rgb(134, 194, 50);
-    border: none;
-}
-
-#checkButton:active {
-    background-color: rgb(49, 70, 19);
-    border: none;
-}
-
-#checkButton:selection {
-    background-color: rgb(49, 70, 19);
-    border: none;
 }
 
 .footer {
@@ -115,9 +89,10 @@ a:any-link {
     }
 }
 
-
-
-#option {
-    background: white;
-    color: black;
+select {
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
 }
