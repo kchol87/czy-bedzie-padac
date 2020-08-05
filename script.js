@@ -9,7 +9,7 @@ fetch(URL)
 const myList = document.getElementById("myList");
 /*for (const [key, value] of Object.entries(cityList)) {myList.add(new Option(key, value))};*/
 
-for (i = 0; i < 10; i++) {myList.insertAdjacentHTML('beforeend', '<option value="'+ Object.keys(cityList)[i] + '">')};
+for (i = 0; i < 439; i++) {myList.insertAdjacentHTML('beforeend', '<option value="'+ Object.keys(cityList)[i] + '">')};
 
 /*document.addEventListener("click", function() {
     for (const [key, value] of Object.entries(cityList))
