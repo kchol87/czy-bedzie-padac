@@ -4,7 +4,7 @@ html {
 
 body {
     background-color: white;
-    font-family: Lato, sans-serif;
+    font-family: Sora, sans-serif;
 }
 
 h2 {
@@ -47,17 +47,18 @@ h2 {
     margin-top: 30px;
 }
 
-#checkButton {
+#button {
     font-size: 16px;
     border-radius: 5px;
     margin: 15px 0px 30px 0px;
-    padding: 12px 20px 11px 20px;
+    padding: 11px 20px 11px 20px;
     border: none;
     background-color: rgb(83, 119, 30);
     color: white;
+    font-family: Sora, sans-serif;
 }
 
-#checkButton:hover {
+#button:hover {
     background-color: rgb(134, 194, 50);
 }
 
@@ -89,10 +90,11 @@ a:any-link {
     }
 }
 
-select {
+input {
     padding: 10px;
-    text-align: center;
     font-size: 16px;
-    font-weight: 400;
     border-radius: 5px;
+    border: solid 0.5px;
+    width: 80%;
+    
 }

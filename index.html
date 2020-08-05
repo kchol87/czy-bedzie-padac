@@ -5,7 +5,7 @@
 <title>Czy będzie padać?</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora"/>
 <script defer src="script.js"></script>
 </head>
 
@@ -14,12 +14,13 @@
 <div id="container">
 <div id="nice-container">
 <img id="logo" src="img/logo.png" alt="Czy będzie padać? - logo">
-<h2>Czy będzie padać?</h2>
-<p>Wybierz swoje miasto i sprawdź czy będzie padać.</p>
+<h2 id="header">Czy będzie padać?</h2>
+<p id="text">Wybierz swoje miasto i sprawdź czy będzie padać.</p>
 
-<form>
-    <input list="myList" id="inputCity"/>
-        <datalist id="myList"></datalist>
+<form id="form">
+    <input list="myList" id="inputCity" placeholder="Wpisz miasto"/>
+        <datalist id="myList"></datalist><br>
+        <button id="button">Sprawdź</button>
 </form>
 
 </div>
