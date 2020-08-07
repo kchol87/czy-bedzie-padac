@@ -5,15 +5,18 @@ html {
 body {
     background-color: white;
     font-family: Sora, sans-serif;
+    background-image: url("wall/rain.jpg");
+    background-repeat: repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
 
 h2 {
     font-size: 32px;
+    margin-top: -15px;
 }
-
-/*#gap {
-    height: 10vh;
-}*/
 
 #container {
     display: flex;
@@ -25,14 +28,13 @@ h2 {
     animation-name: fadedown;
     animation-duration: 1s;
     align-items: center;
-    
 }
 
 #nice-container {
     background-color: white;
     border: none;
     border-color: black;
-    border-radius: 2px;
+    border-radius: 5px;
     text-align: center;
     padding-bottom: 10px;
     padding-top: 5px;

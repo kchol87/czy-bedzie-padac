@@ -13,8 +13,9 @@ const form = document.getElementById("form");
 const rainICO = '<div class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>';
 const norainICO = '<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>';
 const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>';
+let background = document.body.style.backgroundImage;
 
- button.addEventListener("click", function(event) {
+button.addEventListener("click", function(event) {
     event.preventDefault();
     let inputCityName = document.getElementById("inputCity").value;
     let cityNumber = cityList.indexOf(inputCityName);
@@ -37,6 +38,7 @@ const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div 
             img.innerHTML = rainICO;
             button.remove();
             form.remove();
+            background = 'url("./wall/rain.jpg")';
         };
         let itWontRain = function() {
             header.innerHTML = city;
@@ -44,6 +46,7 @@ const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div 
             img.innerHTML = norainICO;
             button.remove();
             form.remove();
+            background = 'url("./wall/norain.jpg")';
         };
         let itWillRainStorm = function() {
             header.innerHTML = city;
@@ -54,6 +57,7 @@ const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div 
             img.innerHTML = stormICO;
             button.remove();
             form.remove();
+            background = 'url("./wall/storm.jpg")';
         };
         let itRains = function() {
             header.innerHTML = city;
@@ -61,6 +65,7 @@ const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div 
             img.innerHTML = rainICO;
             button.remove();
             form.remove();
+            background = 'url("./wall/rain.jpg")';
         };
         let itStorm = function() {
             header.innerHTML = city;
@@ -68,8 +73,8 @@ const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div 
             img.innerHTML = stormICO;
             button.remove();
             form.remove();
+            background = 'url("./wall/storm.jpg")';
         };
         (stormAlarm == 1) ? itStorm() : (rainAlarm == 1) ? itRains() : (stormProbs !== 0) ? itWillRainStorm() : (rainProbs !== 0) ? itWillRain() : itWontRain();
     });
 });
-    
