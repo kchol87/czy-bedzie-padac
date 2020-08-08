@@ -19,7 +19,7 @@ button.addEventListener("click", function(event) {
     event.preventDefault();
     let inputCityName = document.getElementById("inputCity").value;
     let cityNumber = cityList.indexOf(inputCityName);
-    fetch('http://antistorm.eu/webservice.php?id='+cityNumber)  
+    fetch('https://antistorm.eu/webservice.php?id='+cityNumber)  
     .then((resp) => resp.json())
     .then(data => {
         const city = data.m;
