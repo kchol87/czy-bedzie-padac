@@ -34,7 +34,7 @@ button.addEventListener("click", function(event) {
             let rainProbsResult = function() {
                 let result =  (rainProbs > 30) ? 'wysokie' : (rainProbs > 10) ? 'znaczne' : "niskie";
                 return result};
-            text.innerHTML = '<s>Będzie padać za ' + rainComing + ' minut.</s><br>Prawdpodobieństwo opadów jest ' + rainProbsResult()  +'.';
+            text.innerHTML = '<e>Będzie padać za ' + rainComing + ' minut.</e><br>Prawdpodobieństwo opadów jest ' + rainProbsResult()  +'.';
             img.innerHTML = rainICO;
             button.remove();
             form.remove();
