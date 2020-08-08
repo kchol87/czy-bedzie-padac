@@ -23,11 +23,10 @@ h2 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 0.2fr 0.6fr 0.2fr;
-    grid-template-rows: 10vh 80vh 10vh;
-    gap: 1px 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5vh 85vh 5vh;
     grid-template-areas: ". . ." ". container ." ". footer .";
-    margin-left: 7%;
+
   }
 
 
