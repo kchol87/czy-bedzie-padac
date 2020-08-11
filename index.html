@@ -4,45 +4,37 @@
 <head>
 <title>Czy będzie padać?</title>
 <link rel="stylesheet" href="style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora"/>
 <link href="css/weather-icon-animated.css" rel="stylesheet">
-<script defer src="cities.js"></script>
 <script defer src="script.js"></script>
-
-</script>
 </head>
 
 <body>
-<div class="grid-container">
-<div id="container">
-<div id="nice-container">
-<div id='weatherICO'>
-    <div class="icon sun-shower">
-        <div class="cloud"></div>
-        <div class="sun">
-          <div class="rays"></div>
+<div class="container-grid">
+    <div class="container-main">
+        <div class="container-inside">
+            <div class='weatherICO'>
+                <div class="icon sun-shower">
+                    <div class="cloud"></div>
+                    <div class="sun">
+                    <div class="rays"></div>
+                    </div>
+                    <div class="rain"></div>
+                </div>
+            </div>
+            <h1 class="header">Czy będzie padać?</h1>
+            <p class="text">Wybierz swoje miasto i sprawdź czy będzie padać.</p>
+            <br>
+            <form class="form">
+                <input class="inputCity" list="myList" placeholder="Wpisz miasto"/>
+                    <datalist class="myList" id="myList"></datalist><br>
+                    <br>
+                    <button class="button-check">Sprawdź</button>
+            </form>
         </div>
-        <div class="rain"></div>
-      </div>
+    </div>
 </div>
-<h2 id="header">Czy będzie padać?</h2>
-<p id="text">Wybierz swoje miasto i sprawdź czy będzie padać.</p>
-<br>
-<form id="form">
-    <input list="myList" id="inputCity" placeholder="Wpisz miasto"/>
-        <datalist id="myList"></datalist><br>
-        <br>
-        <button id="button">Sprawdź</button>
-</form>
-
-</div>
-</div>
-
-<div class="footer">
-<div id="footer">Tylko do użytku prywatnego. <br>Dane: <a href="https://www.antistorm.eu">Antistorm.eu</a>. Stworzone przez kchol87. </div>
-</div>
-</div>
-
+<div class="footer">Tylko do użytku prywatnego. Dane: <a href="https://www.antistorm.eu">Antistorm.eu</a>. Stworzone przez kchol87. </div>
 </body>
+
 </html>

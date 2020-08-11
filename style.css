@@ -12,41 +12,29 @@ body {
     background-size: cover;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 
-h2 {
-    font-size: 32px;
+h1 {
+    font-size: 28px;
     margin-top: -15px;
 }
 
-
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 5vh 85vh 5vh;
-    grid-template-areas: ". . ." ". container ." ". footer .";
-
-  }
-
-
-#container {
-    grid-area: container;
-    animation-name: fadedown;
-    animation-duration: 1s;
+a:any-link {
+    color: gray;
 }
 
-#nice-container {
-    background-color: white;
-    border: none;
-    border-color: black;
+input {
+    padding: 10px;
+    font-size: 14px;
     border-radius: 5px;
-    text-align: center;
-    box-shadow: 10px 10px 30px black;
+    border: solid 0.5px;
+    width: 60%;
 }
 
-#button {
-    font-size: 16px;
+button {
+    font-size: 14px;
     border-radius: 5px;
     margin: 15px 0px 30px 0px;
     padding: 11px 20px 11px 20px;
@@ -56,30 +44,75 @@ h2 {
     font-family: Sora, sans-serif;
 }
 
-#button:hover {
+button:hover {
     background-color: rgb(134, 194, 50);
     border: none;
 }
 
+.container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5vh 85vh 5vh;
+    grid-template-areas: ". . ." ". container ." ". . .";
+  }
 
-.footer {
-   grid-area: footer;
+
+.container-main{
+    grid-area: container;
+    animation-name: fadedown;
+    animation-duration: 1s;
 }
 
-#footer {
+.container-inside {
+    background-color: white;
+    border: none;
+    border-color: black;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 10px 10px 30px black;
+}
+
+.footer {
+    position: absolute;
     color: gray;
     font-size: 10px;
     text-align: center;
     background-color: white;
-    opacity: 80%;
     border-radius: 5px;
     border: none;
     padding: 0.5em;
-    box-shadow: 10px 10px 30px black;
+    bottom: 0px;
+    justify-self: center;
+
 }
 
-a:any-link {
-    color: gray;
+.text {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.button-refresh {
+    font-size: 24px;
+    border-radius: 50%;
+    margin: 15px 10px 30px 10px;
+    padding: 5px 15px 5px 15px;
+    border: 2px  solid;
+    border-color: black;
+    background-color: white;
+    color: black;
+    font-family: Sora, sans-serif;
+}
+
+.button-return {
+    font-size: 24px;
+    border-radius: 50%;
+    margin: 15px 10px 30px 10px;
+    padding: 5px 15px 5px 15px;
+    border: 2px  solid;
+    border-color: black;
+    background-color: white;
+    color: black;
+    font-family: Sora, sans-serif;
 }
 
 @keyframes fadedown {
@@ -90,18 +123,4 @@ a:any-link {
     100% { 
         opacity: 1; 
     }
-}
-
-input {
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: solid 0.5px;
-    width: 60%;
-    
-}
-
-#text {
-    margin-left: 15px;
-    margin-right: 15px;
 }
