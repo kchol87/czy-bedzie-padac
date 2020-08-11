@@ -1,16 +1,4 @@
 const myList = document.querySelector("#myList"); 
-
-const insertCityList = function(cityList) {
-    for (const city of cityList) {
-        myList.insertAdjacentHTML('beforeend', '<option value="' + city + '" id="'+cityList.indexOf(city)+'">')}
-};
-
-fetch('cities.json')
-.then((resp) => resp.json())
-.then(data => insertCityList(data.cities));
-
-/*Function to get weather data from antistorm.eu*/
-
 const button = document.querySelector(".button-check");
 const header = document.querySelector(".header");
 const img = document.querySelector(".weatherICO");
@@ -20,8 +8,10 @@ const rainICO = '<div class="icon rainy"><div class="cloud"></div><div class="ra
 const norainICO = '<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>';
 const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>';
 const background = document.querySelector("body").style.backgroundImage;
+const insertCityList = function(cityList) {
+    for (const city of cityList) {
+        myList.insertAdjacentHTML('beforeend', '<option value="' + city + '" id="'+cityList.indexOf(city)+'">')}
 };
-
 
 const doTheWork = function(weatherData) {
     const city = weatherData.m;
@@ -69,6 +59,10 @@ const doTheWork = function(weatherData) {
     };
     (stormAlarm == 1) ? itStorm() : (rainAlarm == 1) ? itRains() : (stormProbs !== 0) ? itWillRainStorm() : (rainProbs !== 0) ? itWillRain() : itWontRain();
 }
+
+fetch('cities.json')
+.then((resp) => resp.json())
+.then(data => insertCityList(data.cities));
 
 button.addEventListener("click", function(event) {
     event.preventDefault();
