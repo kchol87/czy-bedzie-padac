@@ -7,7 +7,8 @@ const form = document.querySelector('[class = "form"]');
 const rainICO = '<div class="icon rainy"><div class="cloud"></div><div class="rain"></div></div>';
 const norainICO = '<div class="icon cloudy"><div class="cloud"></div><div class="cloud"></div></div>';
 const stormICO = '<div class="icon thunder-storm"><div class="cloud"></div><div class="lightning"><div class="bolt"></div><div class="bolt"></div></div></div>';
-const background = document.querySelector("body").style.backgroundImage;
+// const background = document.querySelector("body").style.backgroundImage;  
+
 const insertCityList = function(cityList) {
     for (const city of cityList) {
         myList.insertAdjacentHTML('beforeend', '<option value="' + city + '" id="'+cityList.indexOf(city)+'">')}
