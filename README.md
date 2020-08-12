@@ -10,3 +10,5 @@ The app is created to check if it rains in a location chosen by the user. Using 
 * make background images load faster.
 
 This is my first javascript project ever. I beg your indulgence :)
+
+Live demo: https://kchol87.github.io/czy-bedzie-padac/.
