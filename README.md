@@ -6,6 +6,7 @@ The app is created to check if it rains in a location chosen by the user. Using 
 ## To do:
 * clean code (CSS is a mess);
 * add information icon with tooltip instead of footer (footer overlaps content on mobile;
-* create buttons on result page to refresh and return.
+* create buttons on result page to refresh and return;
+* make background images load faster.
 
 This is my first javascript project ever. I beg your indulgence :)
