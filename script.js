@@ -36,6 +36,7 @@ const doTheWork = function(weatherData) {
         text.innerHTML = 'Nie będzie padać.';
         img.innerHTML = norainICO;
         form.remove();
+        document.body.setAttribute("style", "background-image: url('wall/norain.jpg')");
     };
     const itWillRainStorm = function() {
         header.innerHTML = city;
@@ -45,6 +46,7 @@ const doTheWork = function(weatherData) {
         text.innerHTML = 'Będzie grzmieć za ' + stormComing + 'minut. Prawdpodobieństwo burzy jest ' + stormProbsResult() +'.';
         img.innerHTML = stormICO;
         form.remove();
+        document.body.setAttribute("style", "background-image: url('wall/storm.jpg')")
     };
     const itRains = function() {
         header.innerHTML = city;
@@ -57,6 +59,7 @@ const doTheWork = function(weatherData) {
         text.innerHTML = 'Trwa burza.';
         img.innerHTML = stormICO;
         form.remove();
+        document.body.setAttribute("style", "background-image: url('wall/storm.jpg')")
     };
     (stormAlarm == 1) ? itStorm() : (rainAlarm == 1) ? itRains() : (stormProbs !== 0) ? itWillRainStorm() : (rainProbs !== 0) ? itWillRain() : itWontRain();
 }
