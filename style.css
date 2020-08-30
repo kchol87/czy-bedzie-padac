@@ -124,3 +124,29 @@ button:hover {
         opacity: 1; 
     }
 }
+
+.infoIconContainer {
+    padding: 10px;
+margin: -20px 0px 0px 0px;
+}
+
+#infoIcon {
+    border-color: black;
+    border: solid 3px;
+    border-radius: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 1.2em;
+    height: 1.2em;
+    font-size: 18px;
+    font-family: Sora, sans-serif;
+    font-weight: 800;
+    margin-left: auto;
+}
+  
+  p {
+    align-self: center;
+  }
+  
+  
