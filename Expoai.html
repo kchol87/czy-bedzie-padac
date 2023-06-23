@@ -1,0 +1,48 @@
+
+Prognoza deszczu w Polsce
+
+
+User
+napisz kod strony internetowej na której po wpisaniu swojego miasta (w Polsce) pojawi się krótka informacja czy będzie w najbliższym czasie padać deszcz. wykorzystaj do tego API strony antistorm.eu
+
+ChatGPT
+Oto przykładowy kod strony internetowej, który wykorzystuje API strony antistorm.eu do sprawdzenia, czy w najbliższym czasie będzie padać deszcz dla danego miasta w Polsce:
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sprawdź prognozę deszczu</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Sprawdź prognozę deszczu</h1>
+  <input type="text" id="cityInput" placeholder="Wpisz miasto w Polsce" />
+  <button onclick="checkRain()">Sprawdź</button>
+  <p id="result"></p>
+
+  <script>
+    function checkRain() {
+      var cityName = document.getElementById("cityInput").value;
+
+      $.ajax({
+        url: "https://antistorm.eu/api/pl/?query=" + cityName,
+        method: "GET",
+        success: function(data) {
+          var forecast = data.forecast;
+
+          if (forecast === "rain") {
+            $("#result").text("Będzie padać deszcz w najbliższym czasie w miejscowości " + cityName + ".");
+          } else {
+            $("#result").text("Nie ma prognozy opadów deszczu w najbliższym czasie w miejscowości " + cityName + ".");
+          }
+        },
+        error: function() {
+          $("#result").text("Wystąpił błąd podczas pobierania prognozy pogody.");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
