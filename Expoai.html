@@ -2,58 +2,60 @@
 <html>
 <head>
   <title>Sprawdź pogodę</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    function sprawdzPogode() {
-      var miasto = document.getElementById("miasto").value;
-      var url = "http://antistorm.eu/webservice.php?id=" + miasto;
+    $(document).ready(function() {
+      $('#sprawdzButton').click(function() {
+        var miasto = $('#miastoInput').val();
+        var url = 'https://antistorm.eu/webservice.php?id=' + miasto;
 
-      fetch(url)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(data) {
-          var wynik = "";
+        $.getJSON(url, function(data) {
+          var nazwaMiasta = data.m;
+          var prawdopodobienstwoBurzy = data.p_b;
+          var czasDoBurzy = data.t_b;
+          var statusAlarmuBurza = data.a_b;
+          var aktywnaBurza = data.s;
+          var prawdopodobienstwoOpadow = data.p_o;
+          var czasDoOpadow = data.t_o;
+          var statusAlarmuOpady = data.a_o;
 
-          if (data.s === 1) {
-            wynik += "Aktualnie nad miastem " + data.m + " jest burza.<br>";
+          var wynik = "Pogoda dla miasta " + nazwaMiasta + ":<br><br>";
+          if (aktywnaBurza) {
+            wynik += "Aktywna burza nad miastem<br>";
           } else {
-            wynik += "Aktualnie nad miastem " + data.m + " nie ma burzy.<br>";
+            wynik += "Brak aktywnej burzy nad miastem<br>";
           }
 
-          if (data.p_o > 30) {
-            wynik += "Prawdopodobieństwo opadów w ciągu najbliższych 2 godzin wynosi " + data.p_o + ".<br>";
-            if (data.t_o < 255) {
-              wynik += "Czas do opadów: " + data.t_o + " minut.<br>";
+          if (prawdopodobienstwoBurzy > 0) {
+            wynik += "Prawdopodobieństwo wystąpienia burzy: " + prawdopodobienstwoBurzy + "<br>";
+            wynik += "Czas do burzy: " + czasDoBurzy + " minut<br>";
+            if (statusAlarmuBurza) {
+              wynik += "Alarm burzowy zgłoszony<br>";
             } else {
-              wynik += "Czas do opadów jest nieznany.<br>";
+              wynik += "Brak alarmu burzowego<br>";
             }
-          } else {
-            wynik += "Brak prognozy opadów w ciągu najbliższych 2 godzin.<br>";
           }
 
-          if (data.p_b > 30) {
-            wynik += "Prawdopodobieństwo burzy w ciągu najbliższych 2 godzin wynosi " + data.p_b + ".<br>";
-            if (data.t_b < 255) {
-              wynik += "Czas do burzy: " + data.t_b + " minut.<br>";
+          if (prawdopodobienstwoOpadow > 0) {
+            wynik += "Prawdopodobieństwo opadów: " + prawdopodobienstwoOpadow + "<br>";
+            wynik += "Czas do opadów: " + czasDoOpadow + " minut<br>";
+            if (statusAlarmuOpady) {
+              wynik += "Alarm opadowy zgłoszony<br>";
             } else {
-              wynik += "Czas do burzy jest nieznany.<br>";
+              wynik += "Brak alarmu opadowego<br>";
             }
-          } else {
-            wynik += "Brak prognozy burzy w ciągu najbliższych 2 godzin.<br>";
           }
 
-          document.getElementById("wynik").innerHTML = wynik;
-        })
-        .catch(function(error) {
-          console.log("Wystąpił błąd:", error);
+          $('#wynik').html(wynik);
         });
-    }
+      });
+    });
   </script>
 </head>
 <body>
   <h1>Sprawdź pogodę</h1>
-  <input type="text" id="miasto" placeholder="Wpisz nazwę miasta">
-  <button onclick="sprawdzPogode()">Sprawdź</button>
+  <input type="text" id="miastoInput" placeholder="Wpisz miasto">
+  <button id="sprawdzButton">Sprawdź</button>
   <div id="wynik"></div>
 </body>
 </html>
