@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sprawdź prognozę deszczu</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <h1>Sprawdź prognozę deszczu</h1>
-  <input type="text" id="cityInput" placeholder="Wpisz miasto w Polsce" />
-  <button onclick="checkRain()">Sprawdź</button>
-  <p id="result"></p>
-
+  <title>Sprawdź pogodę</title>
   <script>
-    function checkRain() {
-      var cityName = document.getElementById("cityInput").value;
+    function sprawdzPogode() {
+      var miasto = document.getElementById("miasto").value;
+      var url = "http://antistorm.eu/webservice.php?id=" + miasto;
 
-      $.ajax({
-        url: "http://antistorm.eu/webservice.php",
-        method: "GET",
-        data: {
-          id: cityName
-        },
-        dataType: "json",
-        success: function(data) {
+      fetch(url)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {
+          var wynik = "";
+
           if (data.s === 1) {
-            $("#result").text("Aktywna burza nad miejscowością " + data.m + ".");
+            wynik += "Aktualnie nad miastem " + data.m + " jest burza.<br>";
           } else {
-            if (data.p_b > 30) {
-              $("#result").text("Będzie padać deszcz w najbliższym czasie w miejscowości " + data.m + ".");
-            } else {
-              $("#result").text("Nie ma prognozy opadów deszczu w najbliższym czasie w miejscowości " + data.m + ".");
-            }
+            wynik += "Aktualnie nad miastem " + data.m + " nie ma burzy.<br>";
           }
-        },
-        error: function() {
-          $("#result").text("Wystąpił błąd podczas pobierania prognozy pogody.");
-        }
-      });
+
+          if (data.p_o > 30) {
+            wynik += "Prawdopodobieństwo opadów w ciągu najbliższych 2 godzin wynosi " + data.p_o + ".<br>";
+            if (data.t_o < 255) {
+              wynik += "Czas do opadów: " + data.t_o + " minut.<br>";
+            } else {
+              wynik += "Czas do opadów jest nieznany.<br>";
+            }
+          } else {
+            wynik += "Brak prognozy opadów w ciągu najbliższych 2 godzin.<br>";
+          }
+
+          if (data.p_b > 30) {
+            wynik += "Prawdopodobieństwo burzy w ciągu najbliższych 2 godzin wynosi " + data.p_b + ".<br>";
+            if (data.t_b < 255) {
+              wynik += "Czas do burzy: " + data.t_b + " minut.<br>";
+            } else {
+              wynik += "Czas do burzy jest nieznany.<br>";
+            }
+          } else {
+            wynik += "Brak prognozy burzy w ciągu najbliższych 2 godzin.<br>";
+          }
+
+          document.getElementById("wynik").innerHTML = wynik;
+        })
+        .catch(function(error) {
+          console.log("Wystąpił błąd:", error);
+        });
     }
   </script>
+</head>
+<body>
+  <h1>Sprawdź pogodę</h1>
+  <input type="text" id="miasto" placeholder="Wpisz nazwę miasta">
+  <button onclick="sprawdzPogode()">Sprawdź</button>
+  <div id="wynik"></div>
 </body>
 </html>
