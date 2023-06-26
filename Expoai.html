@@ -5,49 +5,65 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
+      var citiesMap = {}; // Mapa miast: nazwa -> id
+
+      // Wczytanie danych z pliku cities.json
+      $.getJSON('cities.json', function(data) {
+        // Przypisanie identyfikatorów miast
+        data.forEach(function(city) {
+          citiesMap[city.name] = city.id;
+        });
+      });
+
       $('#sprawdzButton').click(function() {
         var miasto = $('#miastoInput').val();
-        var url = 'https://antistorm.eu/webservice.php?id=' + miasto;
+        var idMiasta = citiesMap[miasto];
 
-        $.getJSON(url, function(data) {
-          var nazwaMiasta = data.m;
-          var prawdopodobienstwoBurzy = data.p_b;
-          var czasDoBurzy = data.t_b;
-          var statusAlarmuBurza = data.a_b;
-          var aktywnaBurza = data.s;
-          var prawdopodobienstwoOpadow = data.p_o;
-          var czasDoOpadow = data.t_o;
-          var statusAlarmuOpady = data.a_o;
+        if (idMiasta) {
+          var url = 'https://antistorm.eu/webservice.php?id=' + idMiasta;
 
-          var wynik = "Pogoda dla miasta " + nazwaMiasta + ":<br><br>";
-          if (aktywnaBurza) {
-            wynik += "Aktywna burza nad miastem<br>";
-          } else {
-            wynik += "Brak aktywnej burzy nad miastem<br>";
-          }
+          $.getJSON(url, function(data) {
+            var nazwaMiasta = data.m;
+            var prawdopodobienstwoBurzy = data.p_b;
+            var czasDoBurzy = data.t_b;
+            var statusAlarmuBurza = data.a_b;
+            var aktywnaBurza = data.s;
+            var prawdopodobienstwoOpadow = data.p_o;
+            var czasDoOpadow = data.t_o;
+            var statusAlarmuOpady = data.a_o;
 
-          if (prawdopodobienstwoBurzy > 0) {
-            wynik += "Prawdopodobieństwo wystąpienia burzy: " + prawdopodobienstwoBurzy + "<br>";
-            wynik += "Czas do burzy: " + czasDoBurzy + " minut<br>";
-            if (statusAlarmuBurza) {
-              wynik += "Alarm burzowy zgłoszony<br>";
+            var wynik = "Pogoda dla miasta " + nazwaMiasta + ":<br><br>";
+            if (aktywnaBurza) {
+              wynik += "Aktywna burza nad miastem<br>";
             } else {
-              wynik += "Brak alarmu burzowego<br>";
+              wynik += "Brak aktywnej burzy nad miastem<br>";
             }
-          }
 
-          if (prawdopodobienstwoOpadow > 0) {
-            wynik += "Prawdopodobieństwo opadów: " + prawdopodobienstwoOpadow + "<br>";
-            wynik += "Czas do opadów: " + czasDoOpadow + " minut<br>";
-            if (statusAlarmuOpady) {
-              wynik += "Alarm opadowy zgłoszony<br>";
-            } else {
-              wynik += "Brak alarmu opadowego<br>";
+            if (prawdopodobienstwoBurzy > 0) {
+              wynik += "Prawdopodobieństwo wystąpienia burzy: " + prawdopodobienstwoBurzy + "<br>";
+              wynik += "Czas do burzy: " + czasDoBurzy + " minut<br>";
+              if (statusAlarmuBurza) {
+                wynik += "Alarm burzowy zgłoszony<br>";
+              } else {
+                wynik += "Brak alarmu burzowego<br>";
+              }
             }
-          }
 
-          $('#wynik').html(wynik);
-        });
+            if (prawdopodobienstwoOpadow > 0) {
+              wynik += "Prawdopodobieństwo opadów: " + prawdopodobienstwoOpadow + "<br>";
+              wynik += "Czas do opadów: " + czasDoOpadow + " minut<br>";
+              if (statusAlarmuOpady) {
+                wynik += "Alarm opadowy zgłoszony<br>";
+              } else {
+                wynik += "Brak alarmu opadowego<br>";
+              }
+            }
+
+            $('#wynik').html(wynik);
+          });
+        } else {
+          $('#wynik').html("Nieznane miasto");
+        }
       });
     });
   </script>
@@ -55,7 +71,8 @@
 <body>
   <h1>Sprawdź pogodę</h1>
   <input type="text" id="miastoInput" placeholder="Wpisz miasto">
-  <button id="sprawdzButton">Sprawdź</button>
+<button id="sprawdzButton">Sprawdź</button>
+
   <div id="wynik"></div>
 </body>
 </html>
